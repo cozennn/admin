@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>NorDa Admin | Login</title>
+<link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script>
+</head>
+<body class="login-page">
+<div class="language-top"><button class="button button-quiet" type="button" data-language-toggle>English</button></div>
+<main class="login-card">
+<div class="brand-mark">N</div><p class="eyebrow">NORDA · ADMIN</p>
+<h1 data-i18n="loginTitle">تسجيل الدخول</h1><p class="muted" data-i18n="loginSubtitle">سجّلي الدخول لإدارة موقع NorDa.</p>
+<form id="login-form">
+<label for="username" data-i18n="username">اسم المستخدم</label><input id="username" name="username" autocomplete="username" required>
+<label for="password" data-i18n="password">كلمة المرور</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+<p class="form-error" id="login-error" role="alert" hidden></p>
+<button class="button button-primary button-full" type="submit" data-i18n="login">دخول</button>
+</form>
+</main>
+<script>
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+ event.preventDefault();
+ const button = event.currentTarget.querySelector('button[type="submit"]');
+ const error = document.getElementById('login-error');
+ error.hidden = true; button.disabled = true;
+ try {
+  const response = await apiFetch('/api/auth/login', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:document.getElementById('username').value.trim(),password:document.getElementById('password').value})});
+  const data = await response.json().catch(()=>({}));
+  if (!response.ok || data.ok === false) throw new Error(data.error || 'login_failed');
+  location.replace('index.html');
+ } catch (e) {
+  error.textContent = e.message === 'login_failed' ? (currentLanguage()==='ar'?'تعذّر تسجيل الدخول. تحققي من البيانات.':'Login failed. Check your credentials.') : (currentLanguage()==='ar'?'تعذّر تسجيل الدخول. تحققي من البيانات.':'Unable to sign in. Check your credentials.');
+  error.hidden = false;
+ } finally { button.disabled = false; }
+});
+</script>
+</body></html>
