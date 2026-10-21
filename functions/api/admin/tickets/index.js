@@ -7,7 +7,8 @@ export async function onRequestGet({ request, env }) {
     const result = await env.DB.prepare(
       "SELECT id, user_name, status, created_at FROM tickets ORDER BY created_at DESC"
     ).all();
-    return json({ ok: true, tickets: result.results || [] });
+    const messageCount = await env.DB.prepare("SELECT COUNT(*) AS count FROM messages").first();
+    return json({ ok: true, tickets: result.results || [], message_count: Number(messageCount?.count || 0) });
   } catch (error) {
     return json({ ok: false, error: "database_error" }, 500);
   }
