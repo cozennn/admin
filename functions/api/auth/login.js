@@ -56,7 +56,7 @@ export async function onRequestPost({ request, env }) {
     "Path=/",
     "HttpOnly",
     "Secure",
-    "SameSite=Strict",
+    "SameSite=Lax",
     `Max-Age=${60 * 60 * 24 * 7}`,
   ].join("; ");
 
