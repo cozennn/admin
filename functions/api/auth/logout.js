@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
     } catch {}
   }
 
-  const cookie = "norda_session=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0";
+  const cookie = "norda_session=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0";
   return json({ ok: true }, 200, { "Set-Cookie": cookie });
 }
 
