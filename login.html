@@ -27,9 +27,12 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
   const response = await apiFetch('/api/auth/login', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:document.getElementById('username').value.trim(),password:document.getElementById('password').value})});
   const data = await response.json().catch(()=>({}));
   if (!response.ok || data.ok === false) throw new Error(data.error || 'login_failed');
+  const sessionResponse = await apiFetch('/api/auth/me', {headers:{Accept:'application/json', 'Cache-Control':'no-store'}});
+  const sessionData = await sessionResponse.json().catch(()=>({}));
+  if (!sessionResponse.ok || sessionData.ok !== true) throw new Error('session_cookie_not_saved');
   location.replace('index.html');
  } catch (e) {
-  error.textContent = e.message === 'login_failed' ? (currentLanguage()==='ar'?'تعذّر تسجيل الدخول. تحققي من البيانات.':'Login failed. Check your credentials.') : (currentLanguage()==='ar'?'تعذّر تسجيل الدخول. تحققي من البيانات.':'Unable to sign in. Check your credentials.');
+  error.textContent = e.message === 'session_cookie_not_saved' ? (currentLanguage()==='ar'?'تم قبول بيانات الدخول لكن لم تُحفظ جلسة الدخول في المتصفح. تحققي من إعدادات ملفات تعريف الارتباط ثم أعيدي المحاولة.':'Credentials were accepted, but the browser did not keep the session cookie. Check cookie settings and try again.') : (currentLanguage()==='ar'?'تعذّر تسجيل الدخول. تحققي من البيانات أو إعدادات قاعدة البيانات.':'Unable to sign in. Check your credentials or database settings.');
   error.hidden = false;
  } finally { button.disabled = false; }
 });
