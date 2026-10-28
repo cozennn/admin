@@ -1,148 +1,69 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f0eee9">
-  <title>Code and Chill — Animated UI Components & Website Templates</title>
-  <meta name="description" content="Explore animated UI components and website templates for modern websites. Browse the catalogue, discover new releases, and read the licence and FAQ.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Code and Chill — Animated UI Components & Website Templates">
-  <meta property="og:description" content="Explore animated UI components and website templates for modern websites.">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root{color-scheme:light;--bg:#f0eee9;--paper:#fbfaf7;--ink:#171615;--muted:#706d66;--line:#dedbd3;--accent:#c8f169;--radius:22px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
-    a{color:inherit;text-decoration:none}
-    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6e8f29;outline-offset:3px}
-    .wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
-    .topline{height:6px;background:var(--accent)}
-    header{padding:22px 0;border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:22px}
-    .brand{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:850;letter-spacing:-.7px;white-space:nowrap}
-    .mark{width:30px;height:30px;border-radius:10px;background:var(--ink);color:var(--accent);display:grid;place-items:center;font-size:17px}
-    .links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:13px;font-weight:650}
-    .links a:hover{color:var(--ink)}
-    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:13px;background:var(--ink);color:white;font-size:13px;font-weight:750;border:1px solid var(--ink);transition:transform .18s ease,background .18s ease}
-    .nav-cta:hover,.button:hover{transform:translateY(-2px);background:#33312d}
-    .hero{padding:76px 0 54px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:54px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.42);padding:7px 11px;border-radius:999px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-    .dot{width:7px;height:7px;background:#83a934;border-radius:50%}
-    h1{font-size:clamp(42px,6vw,76px);line-height:.99;letter-spacing:-.075em;margin:22px 0 20px;max-width:700px}
-    h1 span{display:block;color:var(--muted);font-weight:520}
-    .intro{font-size:17px;color:var(--muted);max-width:550px;line-height:1.8;margin:0 0 28px}
-    .actions{display:flex;gap:11px;flex-wrap:wrap}
-    .button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
-    .button.secondary:hover{background:var(--paper)}
-    .hero-art{min-height:340px;position:relative;border:1px solid var(--line);border-radius:30px;background:var(--paper);padding:22px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}
-    .hero-art:before{width:230px;height:230px;background:var(--accent);top:-70px;right:-65px;opacity:.8}
-    .hero-art:after{width:170px;height:170px;background:#e5d9ff;bottom:-65px;left:-40px;opacity:.85}
-    .window{position:relative;z-index:1;width:100%;max-width:360px;background:#fff;border:1px solid #e5e2dc;border-radius:18px;box-shadow:0 25px 70px #17161518;overflow:hidden;transform:rotate(-3deg)}
-    .window-top{display:flex;align-items:center;gap:6px;padding:13px;border-bottom:1px solid #eeece7}
-    .window-top i{width:7px;height:7px;border-radius:50%;background:#d8d5ce}
-    .window-label{margin-left:auto;font-size:9px;color:#88847d;font-weight:750;letter-spacing:.12em}
-    .preview{padding:22px}
-    .preview-tag{font-size:9px;letter-spacing:.15em;color:#7c786f;font-weight:800}
-    .preview h2{font-size:27px;line-height:1.05;letter-spacing:-1.4px;margin:12px 0}
-    .preview p{font-size:11px;color:#77736b;line-height:1.7;margin:0 0 18px}
-    .demo-btn{display:inline-flex;background:var(--ink);color:white;padding:10px 13px;border-radius:9px;font-size:10px;font-weight:800}
-    .demo-row{display:flex;gap:9px;margin-top:23px}
-    .demo-tile{flex:1;border:1px solid #e9e6df;background:#faf9f5;border-radius:11px;padding:13px 10px}
-    .demo-tile b{display:block;font-size:17px;letter-spacing:-.7px}
-    .demo-tile span{font-size:9px;color:#77736b}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:28px 0 20px}
-    .section-head h2{font-size:clamp(25px,3vw,36px);letter-spacing:-.055em;margin:0}
-    .section-head p{margin:7px 0 0;color:var(--muted);font-size:14px}
-    .catalog{padding:28px 0 78px}
-    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-    .card{display:flex;flex-direction:column;min-height:240px;padding:23px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .2s ease,border-color .2s ease}
-    .card:hover{transform:translateY(-4px);border-color:#b5b0a5}
-    .card-icon{width:42px;height:42px;display:grid;place-items:center;background:var(--accent);border-radius:13px;font-size:20px;margin-bottom:24px}
-    .card:nth-child(2) .card-icon{background:#e5d9ff}
-    .card:nth-child(3) .card-icon{background:#ffdfc7}
-    .card h3{font-size:20px;letter-spacing:-.6px;margin:0 0 8px}
-    .card p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 20px}
-    .card-link{display:flex;align-items:center;justify-content:space-between;margin-top:auto;font-size:12px;font-weight:800}
-    .arrow{font-size:19px}
-    .note{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 28px;background:var(--ink);color:white;border-radius:var(--radius);margin:0 0 74px}
-    .note h2{font-size:22px;letter-spacing:-.7px;margin:0 0 6px}
-    .note p{color:#b9b6af;font-size:13px;margin:0}
-    .note .button{background:var(--accent);color:var(--ink);border-color:var(--accent);white-space:nowrap}
-    footer{border-top:1px solid var(--line);padding:25px 0 35px}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .copyright{font-size:11px;color:var(--muted)}
-    .footer-links{display:flex;gap:17px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
-    @media(max-width:800px){.links{display:none}.hero{grid-template-columns:1fr;gap:28px;padding-top:52px}.hero-art{min-height:310px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:540px){.wrap{width:min(100% - 28px,1160px)}.nav-cta{padding:10px 12px;font-size:12px}.hero{padding:42px 0 35px}h1{font-size:48px}.intro{font-size:15px}.hero-art{min-height:280px;padding:15px}.cards{grid-template-columns:1fr}.card{min-height:210px}.section-head{align-items:start;flex-direction:column}.note{align-items:start;flex-direction:column;padding:23px}.footer-inner{align-items:start;flex-direction:column}.catalog{padding-bottom:52px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
-  </style>
-</head>
-<body>
-  <div class="topline"></div>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="index.html" aria-label="Code and Chill home"><span class="mark">c.</span> code &amp; chill</a>
-      <nav class="links" aria-label="Main navigation">
-        <a href="components.html">Components</a>
-        <a href="templates.html">Templates</a>
-        <a href="collections.html">Bundles</a>
-        <a href="new.html">What's new</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-      <a class="nav-cta" href="components.html">Explore catalogue <span aria-hidden="true">↗</span></a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google shows a site's icon in results only at a multiple of 48px, so
+         48 and 96 are listed; favicon.ico is for anything that asks for it by name. -->
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Every reel and poster comes from here (shared/reel-versions.ts); connect while the HTML is still arriving. -->
+    <link rel="preconnect" href="https://media.codeandchill.store">
+    <!-- Every page waits on the catalogue (CatalogProvider); fetch it beside the JS, not after it. -->
+    <link rel="preload" href="api/products" as="fetch" crossorigin="">
+    <!-- seo — the server swaps this block for a product's own tags (server/src/routes/pages.ts) -->
+    <!-- seo -->
+    <title>Code and Chill — Animated UI components and templates in HTML, CSS &amp; JS</title>
+    <meta name="description" content="Animated UI components and website templates in plain HTML, CSS and JS, for client sites. Watch each one working before you buy. One-time prices, free updates.">
+    <meta property="og:site_name" content="Code and Chill">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Code and Chill — Animated UI components and templates in HTML, CSS &amp; JS">
+    <meta property="og:description" content="Animated components and website templates in plain HTML, CSS and JavaScript, for client sites. Watch each one working before you buy.">
+    <meta property="og:url" content="https://codeandchill.store/">
+    <meta property="og:image" content="https://codeandchill.store/og/site.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://codeandchill.store/#org","name":"Code and Chill","url":"https://codeandchill.store/","logo":"https://codeandchill.store/logo-512.png","sameAs":["https://www.instagram.com/_code_and_chill_/"]},{"@type":"WebSite","@id":"https://codeandchill.store/#site","name":"Code and Chill","url":"https://codeandchill.store/","publisher":{"@id":"https://codeandchill.store/#org"}}]}</script>
+    <link rel="canonical" href="index.htm">
+    <!-- /seo -->
+    <meta name="theme-color" content="#f0eee9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171615" media="(prefers-color-scheme: dark)">
+    <script>
+      // Paint the stored theme before first paint, so the page never flashes.
+      (() => {
+        try {
+          const stored = localStorage.getItem('instrument:theme');
+          const theme =
+            stored ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {}
+      })();
+    </script>
+    <script type="module" crossorigin="" src="assets/index-fnUiv1ka.js"></script>
+    <link rel="modulepreload" crossorigin="" href="assets/useDocumentTitle-BYm7ZW0c.js">
+    <link rel="modulepreload" crossorigin="" href="assets/reel-shapes-CMY9DhOC.js">
+    <link rel="modulepreload" crossorigin="" href="assets/pricing-D8Bm94Qz.js">
+    <link rel="modulepreload" crossorigin="" href="assets/catalog-context-C0PMVCvs.js">
+    <link rel="modulepreload" crossorigin="" href="assets/format-oxO2bVi2.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-EA3Sb5ra.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-context-DFCLoM72.js">
+    <link rel="modulepreload" crossorigin="" href="assets/api-DyNtFBqj.js">
+    <link rel="stylesheet" crossorigin="" href="assets/index-CEStJGuw.css">
+  </head>
+  <body>
+    <!-- Painted before any script runs; React replaces it. Mirrors src/components/Boot.tsx. -->
+    <div id="root">
+      <div hidden=""><nav><a href="index.htm">Code and Chill</a> <a href="components.html">Components</a> <a href="templates.html">Templates</a> <a href="collections.html">Bundles</a> <a href="new.html">New</a> <a href="faq.html">FAQ</a> <a href="license.html">Licence</a> <a href="changelog.html">Changelog</a></nav><main><h1>Animated UI components and templates in HTML, CSS &amp; JS</h1><p>Animated UI components and website templates in plain HTML, CSS and JS, for client sites. Watch each one working before you buy. One-time prices, free updates.</p><h2>Components</h2><ul><li><a href="components/arachne.html">Arachne</a> — A live clock whose hands are a spider's legs</li><li><a href="components/arc.html">Arc</a> — A bottom tab bar with a ring of light that stretches</li><li><a href="components/atelier.html">Atelier</a> — An add to cart button that packs the item into a bag</li><li><a href="components/atlas.html">Atlas</a> — A 3D team slider where the centre person is in colour</li><li><a href="components/aurelia.html">Aurelia</a> — Three flowers that grow and bloom at night</li><li><a href="components/axis.html">Axis</a> — A drink product card that opens when you tap</li><li><a href="components/bead.html">Bead</a> — A download button whose outline is the progress bar</li><li><a href="components/brim.html">Brim</a> — A download button that fills up like a glass</li><li><a href="components/caddy.html">Caddy</a> — An Add to cart button where a cart drives off</li><li><a href="components/cart.html">Cart</a> — A Buy Now button that turns into a delivery truck</li><li><a href="components/caustic.html">Caustic</a> — A Delete button whose bin eats its own label</li><li><a href="components/contrail.html">Contrail</a> — A Send button where a paper plane flies away</li><li><a href="components/crest.html">Crest</a> — A tab bar with a liquid drop marker</li><li><a href="components/dart.html">Dart</a> — A Send button that folds into a paper plane</li><li><a href="components/dash.html">Dash</a> — A round Add to cart button where the cart drives away</li><li><a href="components/decant.html">Decant</a> — Glass toggle buttons that fill with liquid when pressed</li><li><a href="components/decibel.html">Decibel</a> — A volume slider that shows how loud it really is</li><li><a href="components/deck.html">Deck</a> — A four-digit code field that shuffles like playing cards</li><li><a href="components/delete.html">Delete</a> — A Delete button that shreds a page into a bin</li><li><a href="components/depot.html">Depot</a> — An order button where a van picks up your parcel</li><li><a href="components/dispatch.html">Dispatch</a> — A Buy Now button that packs and ships the order</li><li><a href="components/ember.html">Ember</a> — Hold the egg to hatch a tiny dragon</li><li><a href="components/gild.html">Gild</a> — A favourite button that makes a new shiny star</li><li><a href="components/glance.html">Glance</a> — A Pay button that checks your face before paying</li><li><a href="components/glyph.html">Glyph</a> — Buttons whose letters move when you hover</li><li><a href="components/gulp.html">Gulp</a> — A delete button where the bin eats the word Delete</li><li><a href="components/gyre.html">Gyre</a> — Four code boxes that spin into one check mark</li><li><a href="components/halo.html">Halo</a> — Headphone product cards that tilt and glow on hover</li><li><a href="components/hop.html">Hop</a> — A loading spinner where the last dot jumps to the front</li><li><a href="components/keel.html">Keel</a> — An upload button whose arrow becomes a water level</li><li><a href="components/keep.html">Keep</a> — A crypto wallet welcome screen with a moving 3D coin</li><li><a href="components/lamp.html">Lamp</a> — A cute desk lamp that wakes when you pull its cord</li><li><a href="components/lucid.html">Lucid</a> — A glass tab bar with a sun and moon theme switch</li><li><a href="components/lumen-toggle.html">Lumen Toggle</a> — A dark mode switch that spreads the new theme</li><li><a href="components/maw.html">Maw</a> — A delete button that zooms into its trash can</li><li><a href="components/meniscus.html">Meniscus</a> — A bottom tab bar that moves like liquid</li><li><a href="components/mood.html">Mood</a> — A feedback slider with a face that changes mood</li><li><a href="components/nimbus.html">Nimbus</a> — A publish button with a rolling cloud animation</li><li><a href="components/nought.html">Nought</a> — A 404 error page with wind that blows the page around</li><li><a href="components/nudge.html">Nudge</a> — A Get in touch button that reacts when you hover</li><li><a href="components/opal.html">Opal</a> — A glass navigation bar with a soft stretchy highlight</li><li><a href="components/parachute.html">Parachute</a> — A download button with a parachuting arrow</li><li><a href="components/pebble.html">Pebble</a> — A round glass sign-in form for login and sign up</li><li><a href="components/pivot.html">Pivot</a> — A chat message box with a tool tray that swings open</li><li><a href="components/plimsoll.html">Plimsoll</a> — An upload button that fills with liquid as it uploads</li><li><a href="components/plume.html">Plume</a> — A Subscribe button that folds into a paper plane</li><li><a href="components/pulse.html">Pulse</a> — A glowing heart made of connected dots</li><li><a href="components/quarto.html">Quarto</a> — Four code boxes that fold into one check mark</li><li><a href="components/quench.html">Quench</a> — A submit button that fills up as it sends</li><li><a href="components/relay.html">Relay</a> — A contact menu where the word CONTACT opens your links</li><li><a href="components/relief.html">Relief</a> — Soft buttons that grow into a player and share menu</li><li><a href="components/reptile.html">Reptile</a> — A line-drawn lizard that crawls after your mouse</li><li><a href="components/ripcord.html">Ripcord</a> — A download button that turns into its own progress bar</li><li><a href="components/sable.html">Sable</a> — A checkout form with a card that fills in as you type</li><li><a href="components/scoville.html">Scoville</a> — A spice level slider where the chili pepper catches fire</li><li><a href="components/scry.html">Scry</a> — A search icon that opens into a search field</li><li><a href="components/sigil.html">Sigil</a> — A one-time code field that seals itself when complete</li><li><a href="components/signet.html">Signet</a> — A one-time code field that looks pressed into gold</li><li><a href="components/silo.html">Silo</a> — A download button that opens a box and fills it</li><li><a href="components/snowglobe.html">Snowglobe</a> — A snow globe you can shake to make it snow</li><li><a href="components/solstice.html">Solstice</a> — Drag a slider to move one tree through the seasons</li><li><a href="components/spindle.html">Spindle</a> — A one-time code field that opens a safe</li><li><a href="components/splay.html">Splay</a> — A Share button that opens into share options</li><li><a href="components/surge.html">Surge</a> — A navigation menu with an underline that jumps like electricity</li><li><a href="components/swell.html">Swell</a> — A button that fills with colour like a liquid on hover</li><li><a href="components/swipe.html">Swipe</a> — Swipe a list item left to shred and delete it</li><li><a href="components/tender.html">Tender</a> — A pay button that swipes a card through itself</li><li><a href="components/thrum.html">Thrum</a> — A download button whose arrow becomes a moving wave</li><li><a href="components/tide.html">Tide</a> — A download button whose arrow lies down and becomes the file</li><li><a href="components/tube.html">Tube</a> — A Send button that shoots your message through a tube</li><li><a href="components/tumbler.html">Tumbler</a> — A one-time code field that cuts a key</li><li><a href="components/upload.html">Upload</a> — A ready to use file upload box with progress bars</li><li><a href="components/warden.html">Warden</a> — A password strength meter with a growing dragon</li><li><a href="components/weather.html">Weather</a> — A glass weather card that changes with each day</li><li><a href="components/wish.html">Wish</a> — A birthday cake whose candles you blow out with your breath</li></ul><h2>Templates</h2><ul><li><a href="templates/merrin.html">Merrin</a> — A sales CRM with a drag-and-drop deal board and a morphing sales chart</li><li><a href="templates/wynlo.html">Wynlo</a> — A sales CRM with a drag-and-drop deal board and a country map</li><li><a href="templates/covry.html">Covry</a> — A money and people back office with a cash chart you can filter by site</li><li><a href="templates/moorly.html">Moorly</a> — An insurance broker portal with a stage route you can watch move</li><li><a href="templates/ledra.html">Ledra</a> — A money, people and paperwork back office with a cash forecast</li><li><a href="templates/kerfa.html">Kerfa</a> — A glass sales dashboard with a drag-and-drop deal board</li><li><a href="templates/coffra.html">Coffra</a> — A finance and people back office with a morphing cash-flow chart</li><li><a href="templates/solvik.html">Solvik</a> — A sales CRM in frosted glass with a deal board and invoices</li><li><a href="templates/kinlo.html">Kinlo</a> — A finance and HR back office for a cinema or venue</li><li><a href="templates/rivlet.html">Rivlet</a> — A finance and HR back office with a drag-to-sort desk</li><li><a href="templates/tessly.html">Tessly</a> — A sales CRM with client files, a deal board and a forecast</li><li><a href="templates/corvane.html">Corvane</a> — A payments operations dashboard for card processors and fintech teams</li><li><a href="templates/ambrel.html">Ambrel</a> — A point of sale for a shop with members and a cash drawer</li><li><a href="templates/ondra.html">Ondra</a> — A marketing and sales dashboard for brands that sell online and wholesale</li><li><a href="templates/olvara.html">Olvara</a> — A back office for a small product brand that makes its own stock</li><li><a href="templates/petalo.html">Petalo</a> — A point of sale and back office for a shop with a till</li><li><a href="templates/selvar.html">Selvar</a> — A sales dashboard and CRM for teams that sell to businesses</li><li><a href="templates/vitrea.html">Vitrea</a> — An App Store publishing dashboard with an iPhone-style glass look</li><li><a href="templates/folka.html">Folka</a> — A staff, shifts and pay app for cafés and shift teams</li><li><a href="templates/pembra.html">Pembra</a> — A staff, shifts and payroll app for hotels and shift teams</li><li><a href="templates/kelvo.html">Kelvo</a> — A staff, shifts and payroll app for shift teams</li><li><a href="templates/orvel.html">Orvel</a> — A finance app where every payment is a dot on a chart</li><li><a href="templates/pelago.html">Pelago</a> — A sales dashboard for a small online shop</li><li><a href="templates/grista.html">Grista</a> — A business bank app for a small shop or bakery</li><li><a href="templates/mavora.html">Mavora</a> — An online store dashboard with sales and order tracking</li><li><a href="templates/talvo.html">Talvo</a> — A finance app for a small business with a cash forecast</li><li><a href="templates/murmura.html">Murmura</a> — A social media manager for posting to eight networks</li><li><a href="templates/obolo.html">Obolo</a> — A business money app with wallets in four currencies</li><li><a href="templates/kinby.html">Kinby</a> — A family money app with shared cards and pocket money</li><li><a href="templates/kofra.html">Kofra</a> — A business bank app for freelancers and small studios</li><li><a href="templates/tillo.html">Tillo</a> — A money app for a small shop</li><li><a href="templates/sovra.html">Sovra</a> — A business bank app for a small company with several shops</li><li><a href="templates/noria.html">Noria</a> — A workflow automation app with a visual flow builder</li><li><a href="templates/kesta.html">Kesta</a> — A finance app for a film or video production company</li><li><a href="templates/rivolo.html">Rivolo</a> — A money app for freelancers with tax and savings pots</li><li><a href="templates/vessa.html">Vessa</a> — A stock and supply app for a skincare brand</li><li><a href="templates/sunrow.html">Sunrow</a> — A project app for solar and battery building companies</li><li><a href="templates/lumora.html">Lumora</a> — A teacher's dashboard for the whole school day</li><li><a href="templates/tavola.html">Tavola</a> — A restaurant dashboard with a kitchen board and floor plan</li><li><a href="templates/cadra.html">Cadra</a> — A factory management app with a drag-and-drop production plan</li><li><a href="templates/ivora.html">Ivora</a> — A practice app for a dental clinic</li><li><a href="templates/pane.html">Pane</a> — A glassy project management app for small teams</li><li><a href="templates/torque.html">Torque</a> — An admin panel for a car repair workshop</li><li><a href="templates/lintel.html">Lintel</a> — A real-estate CRM with listings, deals and live chat</li><li><a href="templates/hearth.html">Hearth</a> — A mortgage CRM for loan officers</li><li><a href="templates/corbel.html">Corbel</a> — A sales dashboard for shops that sell online and in store</li><li><a href="templates/kairo.html">Kairo</a> — A revenue dashboard for subscription businesses</li><li><a href="templates/tend.html">Tend</a> — A clinic CRM with a WhatsApp inbox and patient board</li><li><a href="templates/accord.html">Accord</a> — A client CRM with a drag-and-drop deal board</li><li><a href="templates/mender.html">Mender</a> — A customer support dashboard with a drag-and-drop case board</li><li><a href="templates/sprig.html">Sprig</a> — A twelve-page CRM for small agencies and studios</li><li><a href="templates/rapport.html">Rapport</a> — A sales CRM with a deal board, schedule and invoices</li><li><a href="templates/parley.html">Parley</a> — A customer messaging dashboard for SMS, WhatsApp and email</li><li><a href="templates/oria.html">Oria</a> — A furniture store with shop, product pages, bag and checkout</li><li><a href="templates/ledge.html">Ledge</a> — An inventory and sales dashboard with a shop register</li><li><a href="templates/gesso.html">Gesso</a> — An art marketplace landing page with cards that fan out</li><li><a href="templates/dwella.html">Dwella</a> — A homebuying landing page with a cash-back calculator</li><li><a href="templates/arden.html">Arden</a> — A real-estate agency landing page with property search</li><li><a href="templates/solum.html">Solum</a> — A clothing store website with checkout and an admin dashboard</li><li><a href="templates/tandem.html">Tandem</a> — A CRM workspace that ranks leads and shows why</li><li><a href="templates/coffer.html">Coffer</a> — An eight-page invoicing and accounting dashboard</li><li><a href="templates/stride.html">Stride</a> — A personal fitness tracker dashboard with eleven pages</li><li><a href="templates/kvist.html">Kvist</a> — A home goods store with an admin dashboard</li><li><a href="templates/orrery.html">Orrery</a> — An admin console for an AI API service</li><li><a href="templates/portfolio.html">Portfolio</a> — An animated developer portfolio built with React and Tailwind</li><li><a href="templates/halden.html">Halden</a> — A six-page sales CRM with a drag-and-drop deal board</li><li><a href="templates/prism.html">Prism</a> — A live sales dashboard for an online store</li><li><a href="templates/camber.html">Camber</a> — A car parts shop landing page with animated sections</li><li><a href="templates/kestrel.html">Kestrel</a> — A marketing analytics dashboard with eleven pages</li><li><a href="templates/wharf.html">Wharf</a> — A stock and orders dashboard for small shops</li><li><a href="templates/fathom.html">Fathom</a> — A dark crypto trading dashboard with live prices</li><li><a href="templates/sorrel.html">Sorrel</a> — A one-page skincare store where bottles jump into the bag</li><li><a href="templates/strada.html">Strada</a> — A car rental landing page where cars drive in and out</li><li><a href="templates/fernly.html">Fernly</a> — A seven-page project management dashboard</li><li><a href="templates/norda.html">Norda</a> — A one-page furniture store that animates as you scroll</li><li><a href="templates/kessler.html">Kessler</a> — A six-page online store with a working shopping bag</li><li><a href="templates/coterie.html">Coterie</a> — A people and payroll dashboard for HR teams</li><li><a href="templates/vanta.html">Vanta</a> — A dark product launch page with scroll videos</li><li><a href="templates/meridian.html">Meridian</a> — A dark investment dashboard with animated charts</li><li><a href="templates/rivet.html">Rivet</a> — A black and neon personal finance dashboard</li><li><a href="templates/posy.html">Posy</a> — A birthday card where you hand over a flower</li><li><a href="templates/sleuth.html">Sleuth</a> — A 404 page where your mouse is a magnifying glass</li><li><a href="templates/tether.html">Tether</a> — A login button that runs away until the form is filled</li><li><a href="templates/birthday.html">Birthday</a> — An animated birthday greeting that ends in a heart of flowers</li><li><a href="templates/verso.html">Verso</a> — A sign-in card that sweeps over to sign-up</li><li><a href="templates/huddle.html">Huddle</a> — A sign-in form with shapes that watch you type</li><li><a href="templates/sola.html">Sola</a> — A shoe shop where the cart is a real shopping bag</li><li><a href="templates/mochi.html">Mochi</a> — A sign-in page where a cat covers her eyes</li><li><a href="templates/bamboo.html">Bamboo</a> — A sign-in page where a panda covers his eyes</li><li><a href="templates/lunara.html">Lunara</a> — A glass sign-in page over a desert at night</li><li><a href="templates/date.html">Date</a> — A cute video call where two friends blow kisses</li><li><a href="templates/flow.html">Flow</a> — A liquid sign-in page that ripples as you type</li><li><a href="templates/intro.html">Intro</a> — An animated text intro for a web studio or freelancer</li><li><a href="templates/solace.html">Solace</a> — A headphone product page where scrolling plays the video</li><li><a href="templates/vesper.html">Vesper</a> — A studio website where scrolling plays the sunset</li><li><a href="templates/vault.html">Vault</a> — A sign up form where the lock grows with your password</li><li><a href="templates/sneakers.html">Sneakers</a> — A sneaker carousel where shoes turn on a wheel</li><li><a href="templates/gungame.html">Gungame</a> — A neon shooting game you play with your mouse</li><li><a href="templates/den.html">Den</a> — A sign-in page where a husky puppy covers his eyes</li><li><a href="templates/portal.html">Portal</a> — A Sign in button with a tiny door you walk through</li><li><a href="templates/nocturne.html">Nocturne</a> — A glass sign-in page over a forest at night</li><li><a href="templates/love.html">Love</a> — A Will you be mine page where No runs away</li><li><a href="templates/caveman.html">Caveman</a> — A 404 page with an astronaut floating in space</li><li><a href="templates/love-letter.html">Love Letter</a> — A pixel art love letter opened with an arrow</li><li><a href="templates/nero.html">Nero</a> — A product picker page where each chocolate bar flips in</li><li><a href="templates/lumen.html">Lumen</a> — A sign-in page with a pull-cord light bulb</li><li><a href="templates/mango.html">Mango</a> — A scroll-animated landing page for a fruit shop</li><li><a href="templates/heartcode.html">Heartcode</a> — A 3D heart made of the words i love you</li><li><a href="templates/deadline.html">Deadline</a> — A funny coding animation with a deadline chasing a developer</li><li><a href="templates/monolith.html">Monolith</a> — A 3D image gallery where cards turn as you swipe</li><li><a href="templates/moonart.html">Moonart</a> — A space-themed gallery with panels that open on hover</li></ul><h2>Collections</h2><ul><li><a href="collections/every-template.html">Every template</a> — Every page template in the store — dashboards, shops, landing pages and sign-in screens — in one purchase.</li><li><a href="collections/dashboards.html">All dashboards</a> — Every dashboard in the store — SaaS, business and finance — at the biggest saving.</li><li><a href="collections/login-forms.html">Login &amp; sign-up forms</a> — Sign-in screens with a character — pandas, cats, glass and light.</li><li><a href="collections/shop-templates.html">Shop templates</a> — Whole online shops — catalogue, product, bag and checkout, ready for your brand.</li><li><a href="collections/business-dashboards.html">Business dashboards</a> — Run the company — sales, projects, people, stock, the till and customer messages.</li><li><a href="collections/saas-dashboards.html">SaaS &amp; analytics dashboards</a> — An AI platform console, live commerce analytics, a marketing board and a fitness tracker.</li><li><a href="collections/finance-dashboards.html">Finance dashboards</a> — Money on screen — a trading terminal, a finance tracker, a portfolio and invoicing.</li><li><a href="collections/dashboard-starter.html">Dashboard starter</a> — Two dashboards to start with — a portfolio and a finance tracker.</li><li><a href="collections/landing-pages.html">Product landing pages</a> — One-page sites that sell a single thing beautifully.</li><li><a href="collections/playful-pages.html">Games &amp; playful pages</a> — A shooting range, a deadline that chases you, a studio intro.</li><li><a href="collections/love-celebrations.html">Love &amp; celebrations</a> — Little animated gifts — birthdays, anniversaries, a love letter.</li><li><a href="collections/404-pages.html">404 pages</a> — Lost pages that make people smile instead of leave.</li><li><a href="collections/every-button.html">Every button</a> — Every button in the store — delete, send, share, download, upload and toggles.</li><li><a href="collections/buttons-toggles.html">Buttons &amp; toggles</a> — Toggles that fill, stars that mint, buttons that grow into controls.</li><li><a href="collections/download-upload-buttons.html">Download &amp; upload buttons</a> — Progress you can watch — liquid fills, unrolling rings, a parachute.</li><li><a href="collections/send-share-buttons.html">Send &amp; share buttons</a> — Send, subscribe, share, publish — each with a flourish.</li><li><a href="collections/delete-buttons.html">Delete buttons</a> — Buttons that make deleting feel final — and fun.</li><li><a href="collections/cart-checkout.html">Cart &amp; checkout</a> — Add-to-cart, pay and checkout moments that sell.</li><li><a href="collections/navbars.html">Navigation bars</a> — Tab bars and docks that stretch, glow and flow.</li><li><a href="collections/otp-codes.html">OTP &amp; verification codes</a> — One-time code fields that make verifying a moment.</li><li><a href="collections/mobile-interactions.html">Mobile app interactions</a> — Chat, swipes and onboarding that feel native.</li><li><a href="collections/inputs-feedback.html">Inputs &amp; feedback</a> — Sliders, ratings, search and uploads people enjoy using.</li><li><a href="collections/playful-scenes.html">Playful scenes</a> — Little worlds to play with — a dragon egg, a snow globe, four seasons.</li><li><a href="collections/cards-sections.html">Cards &amp; sections</a> — Team, product and feature sections that move.</li></ul></main></div>
+      <div class="boot" role="status" aria-label="Loading the store">
+        <p class="boot__brand"><i aria-hidden="true"></i>CODE AND CHILL</p>
+        <div class="boot__grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
     </div>
-  </header>
-  <main>
-    <section class="wrap hero">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> Made for the details</div>
-        <h1>Small details.<span>Better websites.</span></h1>
-        <p class="intro">Animated UI components and website templates designed to make digital products feel considered. Explore the catalogue and find a piece that fits your next build.</p>
-        <div class="actions">
-          <a class="button" href="components.html">Browse components <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="templates.html">View templates</a>
-        </div>
-      </div>
-      <div class="hero-art" aria-label="Preview of a modern website interface">
-        <div class="window">
-          <div class="window-top"><i></i><i></i><i></i><span class="window-label">INTERFACE STUDY / 001</span></div>
-          <div class="preview">
-            <div class="preview-tag">DESIGN THAT RESPONDS</div>
-            <h2>Make every<br>interaction count.</h2>
-            <p>Thoughtful motion. Useful details. Interfaces that feel as good as they work.</p>
-            <span class="demo-btn">Explore the details ↗</span>
-            <div class="demo-row"><div class="demo-tile"><b>01</b><span>Motion</span></div><div class="demo-tile"><b>02</b><span>Clarity</span></div><div class="demo-tile"><b>03</b><span>Craft</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="wrap catalog" aria-labelledby="catalog-title">
-      <div class="section-head">
-        <div><h2 id="catalog-title">Find your next starting point.</h2><p>Explore components, complete layouts, and curated collections.</p></div>
-      </div>
-      <div class="cards">
-        <a class="card" href="components.html"><span class="card-icon" aria-hidden="true">✳</span><h3>UI Components</h3><p>Expressive buttons, navigation, controls, and interface details for your next build.</p><span class="card-link">Explore components <span class="arrow" aria-hidden="true">↗</span></span></a>
-        <a class="card" href="templates.html"><span class="card-icon" aria-hidden="true">▧</span><h3>Website Templates</h3><p>Ready-made interface foundations for dashboards, tools, and digital products.</p><span class="card-link">Explore templates <span class="arrow" aria-hidden="true">↗</span></span></a>
-        <a class="card" href="collections.html"><span class="card-icon" aria-hidden="true">◫</span><h3>Collections &amp; Bundles</h3><p>Browse curated sets and find pieces that work well together.</p><span class="card-link">View collections <span class="arrow" aria-hidden="true">↗</span></span></a>
-        <a class="card" href="new.html"><span class="card-icon" aria-hidden="true">✦</span><h3>Fresh Releases</h3><p>See what's new and discover recently added work.</p><span class="card-link">See new releases <span class="arrow" aria-hidden="true">↗</span></span></a>
-        <a class="card" href="faq.html"><span class="card-icon" aria-hidden="true">?</span><h3>Frequently Asked Questions</h3><p>Get answers about browsing, purchases, updates, and using the products.</p><span class="card-link">Read the FAQ <span class="arrow" aria-hidden="true">↗</span></span></a>
-        <a class="card" href="license.html"><span class="card-icon" aria-hidden="true">⌁</span><h3>Licence &amp; Updates</h3><p>Understand the usage terms before choosing what works for your project.</p><span class="card-link">Read the licence <span class="arrow" aria-hidden="true">↗</span></span></a>
-      </div>
-    </section>
-    <section class="wrap">
-      <div class="note"><div><h2>Good work lives in the details.</h2><p>Explore the catalogue and find the right building blocks for your next idea.</p></div><a class="button" href="components.html">Start exploring <span aria-hidden="true">↗</span></a></div>
-    </section>
-  </main>
-  <footer>
-    <div class="wrap footer-inner">
-      <a class="brand" href="index.html"><span class="mark">c.</span> code &amp; chill</a>
-      <div class="footer-links"><a href="components.html">Components</a><a href="templates.html">Templates</a><a href="faq.html">FAQ</a><a href="license.html">Licence</a><a href="changelog.html">Changelog</a></div>
-      <div class="copyright">© <span id="year">2026</span> Code and Chill</div>
-    </div>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
+  </body>
 </html>
