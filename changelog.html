@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google shows a site's icon in results only at a multiple of 48px, so
+         48 and 96 are listed; favicon.ico is for anything that asks for it by name. -->
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Every reel and poster comes from here (shared/reel-versions.ts); connect while the HTML is still arriving. -->
+    <link rel="preconnect" href="https://media.codeandchill.store">
+    <!-- Every page waits on the catalogue (CatalogProvider); fetch it beside the JS, not after it. -->
+    <link rel="preload" href="api/products" as="fetch" crossorigin="">
+    <!-- seo — the server swaps this block for a product's own tags (server/src/routes/pages.ts) -->
+    <title>Changelog — every release and update · Code and Chill</title>
+    <meta name="description" content="Every release and update to Code and Chill components and templates, newest first: what changed in each version, and when it shipped.">
+    <link rel="canonical" href="changelog.html">
+    <meta property="og:site_name" content="Code and Chill">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Changelog — every release and update · Code and Chill">
+    <meta property="og:description" content="Every release and update to Code and Chill components and templates, newest first: what changed in each version, and when it shipped.">
+    <meta property="og:url" content="https://codeandchill.store/changelog">
+    <meta property="og:image" content="https://codeandchill.store/og/site.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f0eee9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171615" media="(prefers-color-scheme: dark)">
+    <script>
+      // Paint the stored theme before first paint, so the page never flashes.
+      (() => {
+        try {
+          const stored = localStorage.getItem('instrument:theme');
+          const theme =
+            stored ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {}
+      })();
+    </script>
+    <script type="module" crossorigin="" src="assets/index-fnUiv1ka.js"></script>
+    <link rel="modulepreload" crossorigin="" href="assets/useDocumentTitle-BYm7ZW0c.js">
+    <link rel="modulepreload" crossorigin="" href="assets/reel-shapes-CMY9DhOC.js">
+    <link rel="modulepreload" crossorigin="" href="assets/pricing-D8Bm94Qz.js">
+    <link rel="modulepreload" crossorigin="" href="assets/catalog-context-C0PMVCvs.js">
+    <link rel="modulepreload" crossorigin="" href="assets/format-oxO2bVi2.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-EA3Sb5ra.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-context-DFCLoM72.js">
+    <link rel="modulepreload" crossorigin="" href="assets/api-DyNtFBqj.js">
+    <link rel="stylesheet" crossorigin="" href="assets/index-CEStJGuw.css">
+  </head>
+  <body>
+    <!-- Painted before any script runs; React replaces it. Mirrors src/components/Boot.tsx. -->
+    <div id="root">
+      <div hidden=""><nav><a href="index.htm">Code and Chill</a> <a href="components.html">Components</a> <a href="templates.html">Templates</a> <a href="collections.html">Bundles</a> <a href="new.html">New</a> <a href="faq.html">FAQ</a> <a href="license.html">Licence</a> <a href="changelog.html">Changelog</a></nav><main><h1>Changelog — every release and update</h1><p>Every release and update to Code and Chill components and templates, newest first: what changed in each version, and when it shipped.</p></main></div>
+      <div class="boot" role="status" aria-label="Loading the store">
+        <p class="boot__brand"><i aria-hidden="true"></i>CODE AND CHILL</p>
+        <div class="boot__grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </body>
+</html>

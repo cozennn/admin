@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google shows a site's icon in results only at a multiple of 48px, so
+         48 and 96 are listed; favicon.ico is for anything that asks for it by name. -->
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="icon" href="../favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <!-- Every reel and poster comes from here (shared/reel-versions.ts); connect while the HTML is still arriving. -->
+    <link rel="preconnect" href="https://media.codeandchill.store">
+    <!-- Every page waits on the catalogue (CatalogProvider); fetch it beside the JS, not after it. -->
+    <link rel="preload" href="../api/products" as="fetch" crossorigin="">
+    <!-- seo — the server swaps this block for a product's own tags (server/src/routes/pages.ts) -->
+    <title>Login &amp; sign-up forms — 14 animated designs in HTML, CSS &amp; JS | Code and Chill</title>
+    <meta name="description" content="Sign-in and sign-up forms people remember: a panda that covers its eyes for your password, a cat that peeks, liquid glass, a door that opens, a password that…">
+    <link rel="canonical" href="login-forms.html">
+    <meta property="og:site_name" content="Code and Chill">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Login &amp; sign-up forms">
+    <meta property="og:description" content="Sign-in and sign-up forms people remember: a panda that covers its eyes for your password, a cat that peeks, liquid glass, a door that opens, a password that…">
+    <meta property="og:url" content="https://codeandchill.store/collections/login-forms">
+    <meta property="og:image" content="https://codeandchill.store/og/bamboo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Login & sign-up forms","description":"Sign-in and sign-up forms people remember: a panda that covers its eyes for your password, a cat that peeks, liquid glass, a door that opens, a password that…","url":"https://codeandchill.store/collections/login-forms","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://codeandchill.store/templates/bamboo","name":"Bamboo"},{"@type":"ListItem","position":2,"url":"https://codeandchill.store/templates/mochi","name":"Mochi"},{"@type":"ListItem","position":3,"url":"https://codeandchill.store/templates/den","name":"Den"},{"@type":"ListItem","position":4,"url":"https://codeandchill.store/components/pebble","name":"Pebble"},{"@type":"ListItem","position":5,"url":"https://codeandchill.store/templates/flow","name":"Flow"},{"@type":"ListItem","position":6,"url":"https://codeandchill.store/templates/lunara","name":"Lunara"},{"@type":"ListItem","position":7,"url":"https://codeandchill.store/templates/nocturne","name":"Nocturne"},{"@type":"ListItem","position":8,"url":"https://codeandchill.store/templates/portal","name":"Portal"},{"@type":"ListItem","position":9,"url":"https://codeandchill.store/templates/vault","name":"Vault"},{"@type":"ListItem","position":10,"url":"https://codeandchill.store/templates/huddle","name":"Huddle"},{"@type":"ListItem","position":11,"url":"https://codeandchill.store/templates/verso","name":"Verso"},{"@type":"ListItem","position":12,"url":"https://codeandchill.store/templates/tether","name":"Tether"},{"@type":"ListItem","position":13,"url":"https://codeandchill.store/components/warden","name":"Warden"},{"@type":"ListItem","position":14,"url":"https://codeandchill.store/templates/lumen","name":"Lumen"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Code and Chill","item":"https://codeandchill.store/"},{"@type":"ListItem","position":2,"name":"Bundles","item":"https://codeandchill.store/collections"},{"@type":"ListItem","position":3,"name":"Login & sign-up forms","item":"https://codeandchill.store/collections/login-forms"}]}]}</script>
+    <meta name="theme-color" content="#f0eee9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171615" media="(prefers-color-scheme: dark)">
+    <script>
+      // Paint the stored theme before first paint, so the page never flashes.
+      (() => {
+        try {
+          const stored = localStorage.getItem('instrument:theme');
+          const theme =
+            stored ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {}
+      })();
+    </script>
+    <script type="module" crossorigin="" src="../assets/index-fnUiv1ka.js"></script>
+    <link rel="modulepreload" crossorigin="" href="../assets/useDocumentTitle-BYm7ZW0c.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/reel-shapes-CMY9DhOC.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/pricing-D8Bm94Qz.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/catalog-context-C0PMVCvs.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/format-oxO2bVi2.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/cart-EA3Sb5ra.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/cart-context-DFCLoM72.js">
+    <link rel="modulepreload" crossorigin="" href="../assets/api-DyNtFBqj.js">
+    <link rel="stylesheet" crossorigin="" href="../assets/index-CEStJGuw.css">
+  </head>
+  <body>
+    <!-- Painted before any script runs; React replaces it. Mirrors src/components/Boot.tsx. -->
+    <div id="root">
+      <div hidden=""><nav><a href="../index.htm">Code and Chill</a> <a href="../components.html">Components</a> <a href="../templates.html">Templates</a> <a href="../collections.html">Bundles</a> <a href="../new.html">New</a> <a href="../faq.html">FAQ</a> <a href="../license.html">Licence</a> <a href="../changelog.html">Changelog</a></nav><main><p><a href="../collections.html">Bundles</a></p><h1>Login &amp; sign-up forms</h1><p>Sign-in and sign-up forms people remember: a panda that covers its eyes for your password, a cat that peeks, liquid glass, a door that opens, a password that hatches a guardian. Each is plain HTML, CSS and JavaScript you can drop into any project.</p><ul><li><a href="../templates/bamboo.html">Bamboo</a> — A sign-in page where a panda covers his eyes</li><li><a href="../templates/mochi.html">Mochi</a> — A sign-in page where a cat covers her eyes</li><li><a href="../templates/den.html">Den</a> — A sign-in page where a husky puppy covers his eyes</li><li><a href="../components/pebble.html">Pebble</a> — A round glass sign-in form for login and sign up</li><li><a href="../templates/flow.html">Flow</a> — A liquid sign-in page that ripples as you type</li><li><a href="../templates/lunara.html">Lunara</a> — A glass sign-in page over a desert at night</li><li><a href="../templates/nocturne.html">Nocturne</a> — A glass sign-in page over a forest at night</li><li><a href="../templates/portal.html">Portal</a> — A Sign in button with a tiny door you walk through</li><li><a href="../templates/vault.html">Vault</a> — A sign up form where the lock grows with your password</li><li><a href="../templates/huddle.html">Huddle</a> — A sign-in form with shapes that watch you type</li><li><a href="../templates/verso.html">Verso</a> — A sign-in card that sweeps over to sign-up</li><li><a href="../templates/tether.html">Tether</a> — A login button that runs away until the form is filled</li><li><a href="../components/warden.html">Warden</a> — A password strength meter with a growing dragon</li><li><a href="../templates/lumen.html">Lumen</a> — A sign-in page with a pull-cord light bulb</li></ul></main></div>
+      <div class="boot" role="status" aria-label="Loading the store">
+        <p class="boot__brand"><i aria-hidden="true"></i>CODE AND CHILL</p>
+        <div class="boot__grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </body>
+</html>

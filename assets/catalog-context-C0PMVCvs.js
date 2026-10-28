@@ -1,0 +1,1 @@
+import{h as e,p as t}from"./useDocumentTitle-BYm7ZW0c.js";var n=e(t(),1),r=(0,n.createContext)(null);function i(){let e=(0,n.useContext)(r);if(!e)throw Error(`useCatalog must be used inside <CatalogProvider>`);return e}export{i as n,r as t};

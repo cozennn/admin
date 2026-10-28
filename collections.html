@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google shows a site's icon in results only at a multiple of 48px, so
+         48 and 96 are listed; favicon.ico is for anything that asks for it by name. -->
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Every reel and poster comes from here (shared/reel-versions.ts); connect while the HTML is still arriving. -->
+    <link rel="preconnect" href="https://media.codeandchill.store">
+    <!-- Every page waits on the catalogue (CatalogProvider); fetch it beside the JS, not after it. -->
+    <link rel="preload" href="api/products" as="fetch" crossorigin="">
+    <!-- seo — the server swaps this block for a product's own tags (server/src/routes/pages.ts) -->
+    <title>Bundles — whole sets of templates and components for less · Code and Chill</title>
+    <meta name="description" content="Whole sets of animated designs that belong together — sign-in forms, dashboards, buttons and more — in one purchase, for less than one by one.">
+    <link rel="canonical" href="collections.html">
+    <meta property="og:site_name" content="Code and Chill">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bundles — whole sets of templates and components for less · Code and Chill">
+    <meta property="og:description" content="Whole sets of animated designs that belong together — sign-in forms, dashboards, buttons and more — in one purchase, for less than one by one.">
+    <meta property="og:url" content="https://codeandchill.store/collections">
+    <meta property="og:image" content="https://codeandchill.store/og/site.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f0eee9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171615" media="(prefers-color-scheme: dark)">
+    <script>
+      // Paint the stored theme before first paint, so the page never flashes.
+      (() => {
+        try {
+          const stored = localStorage.getItem('instrument:theme');
+          const theme =
+            stored ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {}
+      })();
+    </script>
+    <script type="module" crossorigin="" src="assets/index-fnUiv1ka.js"></script>
+    <link rel="modulepreload" crossorigin="" href="assets/useDocumentTitle-BYm7ZW0c.js">
+    <link rel="modulepreload" crossorigin="" href="assets/reel-shapes-CMY9DhOC.js">
+    <link rel="modulepreload" crossorigin="" href="assets/pricing-D8Bm94Qz.js">
+    <link rel="modulepreload" crossorigin="" href="assets/catalog-context-C0PMVCvs.js">
+    <link rel="modulepreload" crossorigin="" href="assets/format-oxO2bVi2.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-EA3Sb5ra.js">
+    <link rel="modulepreload" crossorigin="" href="assets/cart-context-DFCLoM72.js">
+    <link rel="modulepreload" crossorigin="" href="assets/api-DyNtFBqj.js">
+    <link rel="stylesheet" crossorigin="" href="assets/index-CEStJGuw.css">
+  </head>
+  <body>
+    <!-- Painted before any script runs; React replaces it. Mirrors src/components/Boot.tsx. -->
+    <div id="root">
+      <div hidden=""><nav><a href="index.htm">Code and Chill</a> <a href="components.html">Components</a> <a href="templates.html">Templates</a> <a href="collections.html">Bundles</a> <a href="new.html">New</a> <a href="faq.html">FAQ</a> <a href="license.html">Licence</a> <a href="changelog.html">Changelog</a></nav><main><h1>Bundles — whole sets of templates and components for less</h1><p>Whole sets of animated designs that belong together — sign-in forms, dashboards, buttons and more — in one purchase, for less than one by one.</p><ul><li><a href="collections/every-template.html">Every template</a> — Every page template in the store — dashboards, shops, landing pages and sign-in screens — in one purchase.</li><li><a href="collections/dashboards.html">All dashboards</a> — Every dashboard in the store — SaaS, business and finance — at the biggest saving.</li><li><a href="collections/login-forms.html">Login &amp; sign-up forms</a> — Sign-in screens with a character — pandas, cats, glass and light.</li><li><a href="collections/shop-templates.html">Shop templates</a> — Whole online shops — catalogue, product, bag and checkout, ready for your brand.</li><li><a href="collections/business-dashboards.html">Business dashboards</a> — Run the company — sales, projects, people, stock, the till and customer messages.</li><li><a href="collections/saas-dashboards.html">SaaS &amp; analytics dashboards</a> — An AI platform console, live commerce analytics, a marketing board and a fitness tracker.</li><li><a href="collections/finance-dashboards.html">Finance dashboards</a> — Money on screen — a trading terminal, a finance tracker, a portfolio and invoicing.</li><li><a href="collections/dashboard-starter.html">Dashboard starter</a> — Two dashboards to start with — a portfolio and a finance tracker.</li><li><a href="collections/landing-pages.html">Product landing pages</a> — One-page sites that sell a single thing beautifully.</li><li><a href="collections/playful-pages.html">Games &amp; playful pages</a> — A shooting range, a deadline that chases you, a studio intro.</li><li><a href="collections/love-celebrations.html">Love &amp; celebrations</a> — Little animated gifts — birthdays, anniversaries, a love letter.</li><li><a href="collections/404-pages.html">404 pages</a> — Lost pages that make people smile instead of leave.</li><li><a href="collections/every-button.html">Every button</a> — Every button in the store — delete, send, share, download, upload and toggles.</li><li><a href="collections/buttons-toggles.html">Buttons &amp; toggles</a> — Toggles that fill, stars that mint, buttons that grow into controls.</li><li><a href="collections/download-upload-buttons.html">Download &amp; upload buttons</a> — Progress you can watch — liquid fills, unrolling rings, a parachute.</li><li><a href="collections/send-share-buttons.html">Send &amp; share buttons</a> — Send, subscribe, share, publish — each with a flourish.</li><li><a href="collections/delete-buttons.html">Delete buttons</a> — Buttons that make deleting feel final — and fun.</li><li><a href="collections/cart-checkout.html">Cart &amp; checkout</a> — Add-to-cart, pay and checkout moments that sell.</li><li><a href="collections/navbars.html">Navigation bars</a> — Tab bars and docks that stretch, glow and flow.</li><li><a href="collections/otp-codes.html">OTP &amp; verification codes</a> — One-time code fields that make verifying a moment.</li><li><a href="collections/mobile-interactions.html">Mobile app interactions</a> — Chat, swipes and onboarding that feel native.</li><li><a href="collections/inputs-feedback.html">Inputs &amp; feedback</a> — Sliders, ratings, search and uploads people enjoy using.</li><li><a href="collections/playful-scenes.html">Playful scenes</a> — Little worlds to play with — a dragon egg, a snow globe, four seasons.</li><li><a href="collections/cards-sections.html">Cards &amp; sections</a> — Team, product and feature sections that move.</li></ul></main></div>
+      <div class="boot" role="status" aria-label="Loading the store">
+        <p class="boot__brand"><i aria-hidden="true"></i>CODE AND CHILL</p>
+        <div class="boot__grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </body>
+</html>
