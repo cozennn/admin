@@ -1,1 +1,0 @@
-import{h as e,p as t}from"./useDocumentTitle-BYm7ZW0c.js";var n=e(t(),1),r=(0,n.createContext)(null);function i(){let e=(0,n.useContext)(r);if(!e)throw Error(`useCart must be used inside <CartProvider>`);return e}var a=e=>`/checkout?items=${e.map(e=>encodeURIComponent(e.slug)).join(`,`)}`;export{a as n,i as r,r as t};
