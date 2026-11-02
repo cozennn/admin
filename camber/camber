@@ -640,7 +640,7 @@ html[lang="ar"] .footer__grid,html[lang="ar"] .footer__base{direction:rtl}
   "Next offer":{fr:"Offre suivante",ar:"العرض التالي"}
  };
  const originalText=new WeakMap(),originalAttrs=new WeakMap();let lang="en";
- const applyText=node=>{if(!originalText.has(node))originalText.set(node,node.nodeValue);const original=originalText.get(node),key=original.trim();if(!key)return;const value=dict[lang]&&dict[lang][key];node.nodeValue=original.replace(key,value||key)};
+ const applyText=node=>{if(!originalText.has(node))originalText.set(node,node.nodeValue);const original=originalText.get(node),key=original.trim();if(!key)return;const value=dict[lang]&&dict[lang][key];const nextValue=original.replace(key,value||key);if(node.nodeValue!==nextValue)node.nodeValue=nextValue};
  const applyAttrs=el=>{for(const name of ["placeholder","aria-label","title"]){if(!originalAttrs.has(el))originalAttrs.set(el,{});const saved=originalAttrs.get(el);if(!(name in saved))saved[name]=el.getAttribute(name);const val=saved[name];if(val!==null)el.setAttribute(name,lang==="en"?val:(attrs[val]&&attrs[val][lang])||val)}};
  const scan=node=>{if(node.nodeType===3){applyText(node);return}if(node.nodeType!==1||node.closest("script,style"))return;applyAttrs(node);const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode())applyText(n);node.querySelectorAll("*").forEach(applyAttrs)};
  const choose=next=>{lang=next;root.lang=next;root.dir=next==="ar"?"rtl":"ltr";scan(document.body);current.textContent=next.toUpperCase();options.forEach(o=>o.classList.toggle("is-active",o.dataset.lang===next));try{localStorage.setItem("camber-language",next)}catch{};document.dispatchEvent(new CustomEvent("camber:languagechange",{detail:{language:next}}))};
