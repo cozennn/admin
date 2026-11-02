@@ -85,5 +85,20 @@ function setLanguage(lang){
 document.addEventListener("click",e=>{const trigger=e.target.closest(".language-trigger");if(trigger){const menu=trigger.parentElement.querySelector(".language-menu");menu.hidden=!menu.hidden;trigger.setAttribute("aria-expanded",String(!menu.hidden));return;}const choice=e.target.closest("[data-lang]");if(choice){setLanguage(choice.dataset.lang);return;}if(!e.target.closest(".language-picker"))document.querySelectorAll(".language-menu").forEach(m=>m.hidden=true);});
 setLanguage(localStorage.getItem(LANGKEY)==="fr"?"fr":"en");
 
+// The storefront module is loaded as a deferred ES module in the document head.
+// It can render or replace page content after this file's first language pass.
+const currentLanguage=()=>localStorage.getItem(LANGKEY)==="fr"?"fr":"en";
+window.addEventListener("load",()=>setLanguage(currentLanguage()),{once:true});
+const translationRoot=document.querySelector("main")||document.body;
+let translationQueued=false;
+new MutationObserver(()=>{
+ if(translationQueued)return;
+ translationQueued=true;
+ requestAnimationFrame(()=>{
+  translationQueued=false;
+  setLanguage(currentLanguage());
+ });
+}).observe(translationRoot,{childList:true,subtree:true});
+
 if(document.body.dataset.checkout==="true"){let list=document.querySelector("[data-checkout-items]"),total=document.querySelector("[data-checkout-total]"),form=document.querySelector("[data-checkout-form]"),drawCheckout=()=>{let a=read();list.innerHTML=a.length?a.map(p=>'<div class="checkout-line"><span>'+esc(p.name)+' × '+p.qty+'</span><strong>'+fmt(p.usd*p.qty)+'</strong></div>').join(""):'<p class="checkout-empty">Your bag is empty. <a href="index.html#parts">Browse the catalogue</a>.</p>';total.textContent=fmt(sum(a));if(form)form.hidden=!a.length};drawCheckout();form?.addEventListener("submit",e=>{e.preventDefault();form.querySelector("[data-checkout-status]").textContent="Preview only: no payment is collected and no order is sent. Connect a payment provider and order service to enable real checkout."})}
 })();
