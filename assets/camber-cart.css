@@ -4,3 +4,6 @@
 
 .language-picker{position:relative;display:flex;align-items:center;margin-inline:12px;z-index:30}.language-trigger{display:flex;align-items:center;gap:7px;border:1px solid #7776;background:transparent;color:inherit;padding:7px 9px;font:inherit;font-size:11px;letter-spacing:.08em;cursor:pointer}.language-trigger svg{width:23px;height:15px;display:block}.language-trigger .language-chevron{width:10px;height:7px}.language-menu{position:absolute;top:calc(100% + 9px);right:0;min-width:150px;background:#efebe3;color:#171a17;border:1px solid #d5d0c6;box-shadow:0 12px 30px #0002;padding:5px}.language-menu[hidden]{display:none}.language-menu button{width:100%;display:flex;align-items:center;gap:10px;padding:10px;border:0;background:transparent;color:inherit;text-align:start;font:inherit;font-size:12px;cursor:pointer}.language-menu button:hover{background:#ded9cf}.language-menu svg{width:24px;height:16px;flex:none}.checkout-top .language-picker{margin-left:auto;margin-right:18px}@media(max-width:760px){.language-picker{margin-inline:5px}.language-trigger{padding:6px}.language-menu{right:auto;left:0}}
 
+
+/* Keep the primary hero actions visible even if the entrance animation is unavailable. */
+html.js .hero__cta{opacity:1!important;visibility:visible!important;transform:none!important}
