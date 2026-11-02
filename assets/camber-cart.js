@@ -38,6 +38,7 @@ function translatePage(lang) {
  while ((node = walker.nextNode())) {
   let original = originalLanguageNodes.get(node);
   if (original === undefined) { original = node.nodeValue; originalLanguageNodes.set(node, original); }
+  if (node.parentElement?.closest(".nav__links,.skip,.language-picker")) continue;
   const key = original.trim();
   if (lang === "en") node.nodeValue = original;
   else if (dictionary[key]) node.nodeValue = original.replace(key, dictionary[key]);
