@@ -1,0 +1,13 @@
+name = "lucky-block-975a"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-16"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "norda-db"
+database_id = "e78b1da3-8341-4639-865d-e62825e4b7ca"
+
+# Optional: create an R2 bucket named norda-uploads and uncomment this binding.
+# [[r2_buckets]]
+# binding = "UPLOADS"
+# bucket_name = "norda-uploads"
